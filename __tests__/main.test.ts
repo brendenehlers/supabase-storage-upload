@@ -6,7 +6,7 @@
 //  * variables following the pattern `INPUT_<INPUT_NAME>`.
 //  */
 
-import * as core from '@actions/core'
+// import * as core from '@actions/core'
 import * as main from '../src/main'
 
 // // Mock the action's main function
