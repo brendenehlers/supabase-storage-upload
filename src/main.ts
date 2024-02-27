@@ -12,34 +12,41 @@ export async function run(): Promise<void> {
     if (!repo) {
       throw new Error('repository directory is undefined')
     }
+    core.debug(`repo_directory: ${repo}`)
 
     const directory = core.getInput('upload_directory_path')
     if (!directory) {
       throw new Error('directory is undefined')
     }
+    core.debug(`upload_directory_path: ${directory}`)
 
     const bucket = core.getInput('bucket_name')
     if (!bucket) {
       throw new Error('bucket is undefined')
     }
+    core.debug(`bucket name: ${bucket}`)
 
     const supabaseProjectID = process.env.SUPABASE_PROJECT_ID
     const supabaseAccessToken = process.env.SUPABASE_ACCESS_TOKEN
     if (!supabaseProjectID || !supabaseAccessToken) {
       throw new Error('Supabase credentials are undefined')
     }
+    core.debug(`supabase project id: ${supabaseProjectID}`)
 
     const client = create(supabaseProjectID, supabaseAccessToken)
 
-    const dir = repo + directory
+    const dir = `${repo}/${directory}`
+    core.debug(`dir: ${dir}`)
     const filenames = getFilenames(dir)
     if (!filenames.length) {
       core.setOutput('message', `no files in provided directory '${directory}'`)
     }
 
     for (const filename of filenames) {
+      core.debug(`uploading: ${filename}`)
       const file = readFile(`${dir}/${filename}`)
       uploadFileToBucket(client, bucket, filename, file)
+      core.debug('file uploaded')
     }
 
     core.setOutput('message', 'Files uploaded successfully')
