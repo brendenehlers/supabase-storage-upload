@@ -1,16 +1,13 @@
 {
-  "name": "typescript-action",
-  "description": "GitHub Actions TypeScript template",
+  "name": "supabase-storage-upload-github-action",
+  "description": "Action for uploading files to a Supabase storage bucket, created using the typescript-action template",
   "version": "0.0.0",
   "author": "",
   "private": true,
-  "homepage": "https://github.com/actions/typescript-action",
+  "homepage": "https://github.com/brendenehlers/supabase-storage-upload",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/actions/typescript-action.git"
-  },
-  "bugs": {
-    "url": "https://github.com/actions/typescript-action/issues"
+    "url": "git+https://github.com/brendenehlers/supabase-storage-upload.git"
   },
   "keywords": [
     "actions",
