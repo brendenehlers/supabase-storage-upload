@@ -1,6 +1,6 @@
-name: 'The name of your action here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'Supabase Storage Upload'
+description: 'Uploads files to a Supabase storage bucket'
+author: 'brendenehlers'
 
 # Add your action's branding here. This will appear on the GitHub Marketplace.
 branding:
@@ -8,7 +8,17 @@ branding:
   color: 'red'
 
 # Define your inputs here.
-# inputs:
+inputs:
+  repo_directory:
+    description: 'Root directory within the actions worker'
+    required: true
+    default: '${{ github.workspace }}'
+  upload_directory_path:
+    description: 'The directory within your project to upload the files from'
+    required: true
+  bucket_name:
+    description: 'The Supabase bucket to upload the files to'
+    required: true
 
 # Define your outputs here.
 outputs:
