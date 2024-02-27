@@ -2759,6 +2759,7 @@ const core = __importStar(__nccwpck_require__(186));
  */
 async function run() {
     try {
+        core.debug(process.env.GITHUB_WORKSPACE);
         core.setOutput('message', 'hello, actions');
     }
     catch (error) {

@@ -6,6 +6,8 @@ import * as core from '@actions/core'
  */
 export async function run(): Promise<void> {
   try {
+    core.debug(process.env.GITHUB_WORKSPACE!)
+
     core.setOutput('message', 'hello, actions')
   } catch (error) {
     // Fail the workflow run if an error occurs
