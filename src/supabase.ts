@@ -1,6 +1,9 @@
 import { SupabaseClient, createClient } from '@supabase/supabase-js'
 
-export const create = (projectId: string, projectKey: string) => {
+export const create = (
+  projectId: string,
+  projectKey: string
+): SupabaseClient => {
   const url = buildUrl(projectId)
 
   return createClient(url, projectKey)

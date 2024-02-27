@@ -1,5 +1,5 @@
 import * as supabase from '@supabase/supabase-js'
-import { buildUrl, create, uploadFileToBucket } from '../src/supabase'
+import { buildUrl, create } from '../src/supabase'
 
 let createClientMock: jest.SpiedFunction<typeof supabase.createClient>
 
