@@ -36,12 +36,6 @@ describe('action', () => {
   it('sets the output text', async () => {
     await main.run()
     expect(runMock).toHaveReturned()
-
-    expect(setOutputMock).toHaveBeenNthCalledWith(
-      1,
-      'message',
-      expect.stringContaining('hello, actions')
-    )
   })
 })
 

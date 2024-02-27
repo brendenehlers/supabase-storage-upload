@@ -16,6 +16,9 @@ inputs:
   upload_directory_path:
     description: 'The directory within your project to upload the files from'
     required: true
+  bucket_name:
+    description: 'The Supabase bucket to upload the files to'
+    required: true
 
 # Define your outputs here.
 outputs:
