@@ -4,8 +4,8 @@ author: 'brendenehlers'
 
 # Add your action's branding here. This will appear on the GitHub Marketplace.
 branding:
-  icon: 'heart'
-  color: 'red'
+  icon: 'hard-drive'
+  color: 'green'
 
 # Define your inputs here.
 inputs:
@@ -23,7 +23,9 @@ inputs:
 # Define your outputs here.
 outputs:
   message:
-    description: 'TEMP'
+    description:
+      'Output of the action, "Files uploaded successfully" if all files were
+      uploaded successfully'
 
 runs:
   using: node20

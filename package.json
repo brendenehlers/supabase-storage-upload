@@ -1,8 +1,8 @@
 {
   "name": "supabase-storage-upload-github-action",
   "description": "Action for uploading files to a Supabase storage bucket, created using the typescript-action template",
-  "version": "0.0.0",
-  "author": "",
+  "version": "1.0.0",
+  "author": "@brendenehlers",
   "private": true,
   "homepage": "https://github.com/brendenehlers/supabase-storage-upload",
   "repository": {
