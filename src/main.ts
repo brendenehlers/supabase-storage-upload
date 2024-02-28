@@ -45,14 +45,11 @@ export async function run(): Promise<void> {
     for (const filename of filenames) {
       core.debug(`uploading: ${filename}`)
       const file = readFile(`${dir}/${filename}`)
-      try {
-        await uploadFileToBucket(client, bucket, filename, file)
-      } catch (err) {
+      const error = await uploadFileToBucket(client, bucket, filename, file)
+      if (error) {
         core.debug('an error has occurred')
-        if (err instanceof Error) {
-          core.debug(err.message)
-          core.setFailed(err.message)
-        }
+        core.debug(error.message)
+        core.setFailed(error.message)
         return
       }
       core.debug('file uploaded')

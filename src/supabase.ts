@@ -19,10 +19,10 @@ export const uploadFileToBucket = async (
   bucket: string,
   filename: string,
   contents: string | Buffer
-): Promise<void> => {
+): Promise<Error | void> => {
   const { error } = await supabase.storage
     .from(bucket)
     .upload(filename, contents, { contentType: 'text/html', upsert: true })
 
-  if (error) throw error
+  if (error) return error
 }
