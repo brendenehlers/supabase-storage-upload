@@ -15,11 +15,11 @@ repository directory provided by the `upload_directory_path` input to the bucket
 provided by the `bucket_name` input. If an error occurs when uploading a file,
 the action will fail and no more files will be uploaded (future feature
 potential). All files that had been uploaded to that point will not be reverted.
-This is my first custom Github Action, so any constructive feedback is
+This is my first custom GitHub Action, so any constructive feedback is
 appreciated.
 
 This action was built from the
-[TypeScript Github Action Template](https://github.com/actions/typescript-action).
+[TypeScript Action Template](https://github.com/actions/typescript-action).
 Please refer to that repository for questions related to the structure of this
 project.
 
