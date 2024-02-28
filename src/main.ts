@@ -27,13 +27,13 @@ export async function run(): Promise<void> {
     core.debug(`bucket name: ${bucket}`)
 
     const supabaseProjectID = process.env.SUPABASE_PROJECT_ID
-    const supabaseAccessToken = process.env.SUPABASE_ACCESS_KEY
-    if (!supabaseProjectID || !supabaseAccessToken) {
+    const supabaseApiKey = process.env.SUPABASE_API_KEY
+    if (!supabaseProjectID || !supabaseApiKey) {
       throw new Error('Supabase credentials are undefined')
     }
     core.debug(`supabase project id: ${supabaseProjectID}`)
 
-    const client = create(supabaseProjectID, supabaseAccessToken)
+    const client = create(supabaseProjectID, supabaseApiKey)
 
     const dir = `${repo}/${directory}`
     core.debug(`dir: ${dir}`)

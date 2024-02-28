@@ -19288,12 +19288,12 @@ async function run() {
         }
         core.debug(`bucket name: ${bucket}`);
         const supabaseProjectID = process.env.SUPABASE_PROJECT_ID;
-        const supabaseAccessToken = process.env.SUPABASE_ACCESS_KEY;
-        if (!supabaseProjectID || !supabaseAccessToken) {
+        const supabaseApiKey = process.env.SUPABASE_API_KEY;
+        if (!supabaseProjectID || !supabaseApiKey) {
             throw new Error('Supabase credentials are undefined');
         }
         core.debug(`supabase project id: ${supabaseProjectID}`);
-        const client = (0, supabase_1.create)(supabaseProjectID, supabaseAccessToken);
+        const client = (0, supabase_1.create)(supabaseProjectID, supabaseApiKey);
         const dir = `${repo}/${directory}`;
         core.debug(`dir: ${dir}`);
         const filenames = (0, files_1.getFilenames)(dir);

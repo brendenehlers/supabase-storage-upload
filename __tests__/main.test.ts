@@ -61,7 +61,7 @@ describe('action', () => {
     process.env = {
       ...OLD_ENV,
       SUPABASE_PROJECT_ID: supabaseId,
-      SUPABASE_ACCESS_KEY: supabaseKey
+      SUPABASE_API_KEY: supabaseKey
     }
   })
 
