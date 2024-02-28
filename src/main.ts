@@ -45,7 +45,7 @@ export async function run(): Promise<void> {
     for (const filename of filenames) {
       core.debug(`uploading: ${filename}`)
       const file = readFile(`${dir}/${filename}`)
-      uploadFileToBucket(client, bucket, filename, file)
+      await uploadFileToBucket(client, bucket, filename, file)
       core.debug('file uploaded')
     }
 

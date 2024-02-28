@@ -19303,7 +19303,7 @@ async function run() {
         for (const filename of filenames) {
             core.debug(`uploading: ${filename}`);
             const file = (0, files_1.readFile)(`${dir}/${filename}`);
-            (0, supabase_1.uploadFileToBucket)(client, bucket, filename, file);
+            await (0, supabase_1.uploadFileToBucket)(client, bucket, filename, file);
             core.debug('file uploaded');
         }
         core.setOutput('message', 'Files uploaded successfully');
