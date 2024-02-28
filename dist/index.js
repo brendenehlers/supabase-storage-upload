@@ -19303,15 +19303,11 @@ async function run() {
         for (const filename of filenames) {
             core.debug(`uploading: ${filename}`);
             const file = (0, files_1.readFile)(`${dir}/${filename}`);
-            try {
-                await (0, supabase_1.uploadFileToBucket)(client, bucket, filename, file);
-            }
-            catch (err) {
+            const error = await (0, supabase_1.uploadFileToBucket)(client, bucket, filename, file);
+            if (error) {
                 core.debug('an error has occurred');
-                if (err instanceof Error) {
-                    core.debug(err.message);
-                    core.setFailed(err.message);
-                }
+                core.debug(error.message);
+                core.setFailed(error.message);
                 return;
             }
             core.debug('file uploaded');
@@ -19354,7 +19350,7 @@ const uploadFileToBucket = async (supabase, bucket, filename, contents) => {
         .from(bucket)
         .upload(filename, contents, { contentType: 'text/html', upsert: true });
     if (error)
-        throw error;
+        return error;
 };
 exports.uploadFileToBucket = uploadFileToBucket;
 
