@@ -45,7 +45,16 @@ export async function run(): Promise<void> {
     for (const filename of filenames) {
       core.debug(`uploading: ${filename}`)
       const file = readFile(`${dir}/${filename}`)
-      await uploadFileToBucket(client, bucket, filename, file)
+      try {
+        await uploadFileToBucket(client, bucket, filename, file)
+      } catch (err) {
+        core.debug('an error has occurred')
+        if (err instanceof Error) {
+          core.debug(err.message)
+          core.setFailed(err.message)
+        }
+        return
+      }
       core.debug('file uploaded')
     }
 
@@ -53,5 +62,6 @@ export async function run(): Promise<void> {
   } catch (error) {
     // Fail the workflow run if an error occurs
     if (error instanceof Error) core.setFailed(error.message)
+    return
   }
 }

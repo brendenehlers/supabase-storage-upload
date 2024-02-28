@@ -19303,7 +19303,17 @@ async function run() {
         for (const filename of filenames) {
             core.debug(`uploading: ${filename}`);
             const file = (0, files_1.readFile)(`${dir}/${filename}`);
-            await (0, supabase_1.uploadFileToBucket)(client, bucket, filename, file);
+            try {
+                await (0, supabase_1.uploadFileToBucket)(client, bucket, filename, file);
+            }
+            catch (err) {
+                core.debug('an error has occurred');
+                if (err instanceof Error) {
+                    core.debug(err.message);
+                    core.setFailed(err.message);
+                }
+                return;
+            }
             core.debug('file uploaded');
         }
         core.setOutput('message', 'Files uploaded successfully');
@@ -19312,6 +19322,7 @@ async function run() {
         // Fail the workflow run if an error occurs
         if (error instanceof Error)
             core.setFailed(error.message);
+        return;
     }
 }
 exports.run = run;
