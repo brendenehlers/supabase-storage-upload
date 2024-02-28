@@ -29,12 +29,12 @@ requests, feel free to create an issue detailing them.
 ## Using the action
 
 This action requires two environment variables to be set: `SUPABASE_PROJECT_ID`
-and `SUPABASE_ACCESS_TOKEN`.
+and `SUPABASE_ACCESS_KEY`.
 
 `SUPABASE_PROJECT_ID` is the reference ID for your project.
 
-`SUPABASE_ACCESS_TOKEN` is the access token for your project, either the `anon`
-or the `service role`. It's helpful to keep in mind that if RLS isn't setup for
+`SUPABASE_ACCESS_KEY` is the access token for your project, either the `anon` or
+the `service role`. It's helpful to keep in mind that if RLS isn't setup for
 your bucket, you need to use the `service role` to have this action work.
 
 The action also has three input parameters: `repo_directory`,
@@ -65,7 +65,7 @@ jobs:
 
     env:
       SUPABASE_PROJECT_ID: ${{ secrets.SUPABASE_PROJECT_ID }}
-      SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+      SUPABASE_ACCESS_KEY: ${{ secrets.SUPABASE_ACCESS_KEY }}
 
     steps:
       - uses: actions/checkout@v3

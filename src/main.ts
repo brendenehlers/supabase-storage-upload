@@ -27,7 +27,7 @@ export async function run(): Promise<void> {
     core.debug(`bucket name: ${bucket}`)
 
     const supabaseProjectID = process.env.SUPABASE_PROJECT_ID
-    const supabaseAccessToken = process.env.SUPABASE_ACCESS_TOKEN
+    const supabaseAccessToken = process.env.SUPABASE_ACCESS_KEY
     if (!supabaseProjectID || !supabaseAccessToken) {
       throw new Error('Supabase credentials are undefined')
     }
